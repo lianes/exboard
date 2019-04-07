@@ -8,7 +8,7 @@ public class BoardDaoSqls {
 	public static final String GET_POST_BY_INDEX = "SELECT post.index, post.title, post.content, post.create_time, post.modify_time, post.read_count, post.user_index FROM post WHERE `index` = :postIndex";
 	public static final String ADD_POST_COUNT = "UPDATE post SET read_count = read_count + 1 WHERE `index` = :postIndex";
 	public static final String ADD_MEMBER = "INSERT INTO user (id, name, email, password) VALUES (':userId',':userName',':userEmail',':userPassword')";
-	public static final String LOGIN_USER = "SELECT user.index FROM user WHERE id=:userId AND password=:userPassword";
+	public static final String LOGIN_USER = "SELECT user.index FROM user WHERE BINARY id=:userId AND password=:userPassword";
 	public static final String WRITE_POST = "INSERT INTO post (title,content,create_time,read_count,user_index) VALUES (':title',':content',':create_time',':read_count',':user_index')";
 	public static final String MODIFY_POST = "UPDATE post SET `title`=:title, `content`=:content, `modify_time`=:modify_time WHERE `index`=:index";
 	public static final String DELETE_POST = "DELETE FROM post WHERE `index`=:postIndex";
